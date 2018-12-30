@@ -63,6 +63,9 @@ def ap_page():
 def user_page():
     return render_template('User_page.html', users= users)
 
+@app.route('/APdetail/', methods=['GET'])
+def ap_detail():
+    return render_template('AP_detail.html')
 
 @app.route('/about/', methods=['GET', 'POST'])
 def about_page():

@@ -5,50 +5,10 @@
 <head>
 
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-<!-- <title>AP_table</title> -->
-<!--     <link rel="stylesheet" type="text/css" href="style.css" media="all" />
-    <script type="text/javascript" src="../static/TabelSorter/jquery.tablesorter.widgets.js"></script>
-    <script type="text/javascript" src="../static/TableSorter/jquery.tablesorter.js"></script>  -->
-
-
-
 
 	<title>ap</title>
 	<style type="text/css">
-		/*		div.table {
-    		margin-left: 15%;
-    		padding: 10px 20px;
-		}
 
-		#apTable, #fapTable {
-    		font-family: arial, sans-serif;
-    		border-collapse: collapse;
-    		width: 80%;
-    		border: 3px solid black;
-    		margin: 16px;
-    		border-collapse: collapse;
-		}
-
-		th {
-    		text-align: left;
-    		padding: 8px;
-    		background-color: #FFAA33;
-		}
-
-		td {
-    		text-align: left;
-    		padding: 8px;    
-		}
-
-		tr:nth-child(even) {
-    		background-color: #dddddd;
-		}	
-
-		#apTable tr.header, #apTable tr:hover, #fapTable tr.header, #fapTable tr:hover {
-			background-color: #f1f1f1;
-		}	
-*/
 		#apInput {
 			border: 1px solid #ddd;
 			margin-bottom: 12px;
@@ -73,12 +33,13 @@
         	    ps.update();
         	})
     	});  
+        // search
 		function apFunction() {
   			//Declare variables
   			var input, filter, table, tr, td, i, txtValue;
   			input = document.getElementById("apInput");
   			filter = input.value.toUpperCase();
-  			table = document.getElementById("apTable");
+  			table = document.getElementById("Table");
   			tr = table.getElementsByTagName("tr");
   			//Loop throught all table rows, and hide those who don't match the search query
   			for (i=0; i<tr.length; i++)
@@ -97,8 +58,7 @@
   			}
   		}
 
-        var link_to_apdetail= '{{ url_for('ap_detail') }}' ;
-
+        // apdetail
         $(document).ready(function(){
             $("tr td:first-child").click(function(){
                 $("#aptable").hide();
@@ -115,63 +75,38 @@
 
 <body>
 
-    {<script type="text/javascript">
+    <script type="text/javascript">
         $(function () {
             $("#Table").tablesorter({widgets: ['zebra']});
         });
-    </script>}
+    </script>
 
-	<!--
-	<div class="table">
-		<h2>AP資訊</h2>
-
-		<input type="text" id="apInput" onkeyup="apFunction()" placeholder="Search for ID ..">
-		<table rules="all" id="apTable">
-			<th>Connecting AP</th>
-			{% for i in range(success|length) %}
-			{% set e = success[i] %} {# set variable #}
-			<tr>
-				<td><a href=''>AP {{ i }}!</a> &emsp; {{ e[0] }}/ {{ e[1] }}/ {{ e[2] }}</td>
-			</tr>
-			{% endfor %}
-		</table>
-
-		<input type="text" id="fapInput" onkeyup="fapFunction()" placeholder="Search for ID ..">
-		<table rules="all" align-right="16px" id="fapTable">
-			<th>Connecting failed AP</th>
-			{% for i in range(fail|length) %}
-			{% set e = fail[i] %}
-			<tr>
-				<td><a href=''>AP {{ i }}!</a> &emsp; {{ e[0] }}/ {{ e[1] }}/ {{ e[2] }}</td>
-			</tr>
-			{% endfor %}
-		</table>
-	</div>
-	-->
-
-        <div class="limiter" style="margin-left: 15%; padding-top: 5%; width: 85%; padding: 10px 20px; padding-top: 4.5%;">
-            <div id="aptable">
-                <h1>AP</h1>
-                <input type="text" id="apInput" onkeyup="apFunction()" placeholder="Search for ID .." style="margin-left: 2%; margin-top: 3%; outline-style: solid; outline-width: 1px;">
-                <div class="container-table100" style="justify-content: flex-start; min-height: 20vh;">
-                    <div class="wrap-table100">
-                        <div class="table100 ver3 m-b-110">
+    <div id="aptable">
+        <div class="limiter" style="margin-left: 15%; padding-top: 5%; width: 85%; padding: 10px 20px;  padding-top: 6%;">
+            <h1><b>AP</b></h1>
+            <input type="text" id="apInput" onkeyup="apFunction()" placeholder="Search for ID .." style="margin-left: 2%; margin-top: 3%; outline-style: solid; outline-width: 2px; padding: 4px;">
+            <div class="container-table100" style="justify-content: flex-start; min-height: 20vh;">
+                <div class="wrap-table100">
+                    <div class="table100 ver3 m-b-110">
+                            
+                        
+                        <table id="Table">
                             <div class="table100-head">
-                                <table>
-                                    <thead>
-                                        <tr class="row100 head" style="cursor: pointer;">
-                                            <th class="cell100 column1">name</th>
-                                            <th class="cell100 column2">ID</th>
-                                            <th class="cell100 column3">MAC</th>
-                                            <th class="cell100 column4">SSID</th>
-                                            </tr>
-                                    </thead>
-                            </table>
-                        </div>
-
-                        <div class="table100-body js-pscroll">
-                            <table id="Table">
-                                <tbody>
+                            <thead>
+                                <tr class="row100 head" style="cursor: pointer;">
+                                    <th class="cell100 column1">name</th>
+                                    <th class="cell100 column2">ID</th>
+                                    <th class="cell100 column3">MAC</th>
+                                    <th class="cell100 column4">SSID</th>
+                                </tr>
+                            </thead>
+                            </div>
+<!--                         </table>
+                        </div>    
+                        <div class="table100-body js-pscroll">  
+                        <table id="Table" class="tablesorter"> -->        
+                            <div class="js-pscroll">
+                            <tbody class="table100-body">
                                     <tr class="row100 body">
                                         <td class="cell100 column1">Like a butterfly</td>
                                         <td class="cell100 column2">Boxing</td>
@@ -332,17 +267,19 @@
                                         <td class="cell100 column3">8:00 AM - 9:00 AM</td>
                                         <td class="cell100 column4">Randy Porter</td>
                                     </tr>
-                                </tbody>
-                            </table>    
-                        </div>
+                            </tbody>
+                            </div>
+                        </table>
+                        <!-- </div> -->
+                    
                     </div>
                 </div>
             </div>
         </div>
-        <div id="apform" style="display: none;">
+    </div>
+    <div id="apform" class="limiter" style="margin-left: 15%; padding-top: 5%; width: 85%; padding: 10px 20px; display: none; padding-top: 6%;">
+        <h1>Information</h1>
         <form>
-            <h1>Information</h1>
-            <form>
                 <div class="form-group row">
                     <label for="ID" class="col-sm-2 col-form-label">ID</label>
                     <div class="col-sm-4">
@@ -430,7 +367,7 @@
                 <div class="form-group row">
                     <label for="wifidog_uptime" class="col-sm-2 col-form-label">Wifidog Uptime</label>
                     <div class="col-sm-4">
-                        <input type="time" readonly class="form-control" id="wifidog_uptime" placeholder="time">
+                        <input type="text" readonly class="form-control" id="wifidog_uptime" value="2018/12/29-12:00:00">
                     </div>
                 </div>
                 <div class="form-group row">
@@ -445,51 +382,10 @@
                         <input type="time" readonly class="form-control" id="update_time" placeholder="time">
                     </div>
                 </div>
-            </form>
-
-
-<!--             <div class="form-row">
-                <div class="form-group col-md-3">
-                    <label for="inputID">ID</label>
-                    <input type="ID" readonly class="form-control-plaintext" id="id" value="ID">
-                </div>
-                <div class="form-group col-md-3">
-                    <label for="inputMAC">MAC</label>
-                    <input type="MAC" readonly class="form-control" id="MAC" value="MAC">
-                </div>
-                <div class="form-group col-md-3">
-                    <label for="inputSSID">SSID</label>
-                    <input type="text" class="form-control" id="SSID" placeholder="SSID">
-                </div>
-            </div>
-            <div class="form-row">
-                <div class="form-group col-md-3">
-                    <label for="id">Device ID</label>
-                    <input type="text" readonly class="form-control" id="device_id" value="ID">
-                </div>
-                <div class="form-group col-md-3">
-                    <label for="cpuusage">CPU Usage</label>
-                    <input type="text" readonly class="form-control" id="cpu_usage" value="CPU usage">
-                </div>
-            </div>
-            <div class="form-row">
-                <div class="form-group col-md-3">
-                    <label for="data">received</label>
-                    <input type="decimal" readonly class="form-control" id="received" value="received value">
-                </div>
-                <div class="form-group col-md-3">
-                    <label for="data">transmit</label>
-                    <input type="decimal" readonly class="form-control" id="transmit" value="transmit value">
-                </div>
-                <div class="form-group col-md-3">
-                    <label for="data">timestamp</label>
-                    <input type="decimal" readonly class="form-control" id="timestamp" value="time">
-                </div>
-            </div> -->
-            <input type="text" readonly class="form-control backhover" style="width: 5%;" id="back" value="back">
+                <input type="text" readonly class="form-control backhover" style="width: 5%; cursor: pointer;" id="back" value="back">
         </form>
-        </div>
     </div>
+    
 </body>
 
 </html>

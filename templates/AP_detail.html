@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>main</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+<!--     <link rel="stylesheet" type="text/css" href="../static/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="../UI_main_css.css">
+    <script type="text/javascript" src="../static/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../static/jquery.min.js"></script>
+    <script type="text/javascript" src="../static/jquery.v1.6.1.js"></script>
+    <script type="text/javascript" src="../popper.min.js"></script> -->
+    <script>
+        $(document).ready(function(){
+            $("button").click(function(){
+                $("#detail").load(link_to_ap);
+            });
+        });
+    </script>
+</head>
+<body>
+	<div id="detail">
+	<div style="margin-left:15%; padding:1px 16px; height: 20%; background-color: #ffffff;">
+    	<h2 style="margin-top: 3%;">AP information</h2>
+
+	<form>
+    	<div class="form-row">
+    		<div class="form-group col-md-3">
+        		<label for="inputID">ID</label>
+      			<input type="ID" readonly class="form-control" id="id" value="ID">
+    		</div>
+    		<div class="form-group col-md-3">
+    	 		<label for="inputMAC">MAC</label>
+        		<input type="MAC" readonly class="form-control" id="MAC" value="MAC">
+    		</div>
+    		<div class="form-group col-md-3">
+    	 		<label for="inputSSID">SSID</label>
+        		<input type="SSID" readonly class="form-control" id="SSID" value="SSID">
+    		</div>
+  		</div>
+  		<div class="form-row">
+   	 		<div class="form-group col-md-3">
+      			<label for="id">Device ID</label>
+      			<input type="text" readonly class="form-control" id="device_id" value="ID">
+    		</div>
+    		<div class="form-group col-md-3">
+      			<label for="cpuusage">CPU Usage</label>
+      			<input type="text" readonly class="form-control" id="cpu_usage" value="CPU usage">
+    		</div>
+  		</div>
+  		<div class="form-row">
+   	 		<div class="form-group col-md-3">
+      			<label for="data">received</label>
+      			<input type="decimal" readonly class="form-control" id="received" value="received value">
+    		</div>
+    		<div class="form-group col-md-3">
+      			<label for="data">transmit</label>
+      			<input type="decimal" readonly class="form-control" id="transmit" value="transmit value">
+    		</div>
+    		<div class="form-group col-md-3">
+      			<label for="data">timestamp</label>
+      			<input type="decimal" readonly class="form-control" id="timestamp" value="time">
+    		</div>
+  		</div>
+	</form>
+	<button>back</button>
+</div>
+</body>
+</html>
+
+
+	
+
